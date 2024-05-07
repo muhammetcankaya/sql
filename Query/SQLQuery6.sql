@@ -1,0 +1,18 @@
+--alter table ogrenci add ogr_baba_adi varchar(15)
+--alter table ogrenci drop column ogr_baba_adi
+--alter table ogrenci alter column ogn_ad char(10)
+--select*from ogrenci where ogn_ad='mustafa'
+--select*from ogrenci where ogr_cisiyet='erkek'
+--select*from ogrenci where Ögr_no between '2024' and '2028'
+--select*from ogrenci where ogn_ad like 'f%'
+--select*from ogrenci where ogn_ad like '%f'
+--select*from ogrenci where ogn_ad like '%þ%'
+--select*from ogrenci 
+--where ogr_cisiyet='erkek' and ogr_sýnýf='10-b'
+--select*from ogrenci 
+--where ogr_cisiyet='erkek' or ogr_sýnýf='10-b'
+--select distinct ogr_sýnýf from ogrenci
+--select*from ogrenci order by ogn_ad desc
+--select*from ogrenci where ogn_ad not in('ayþe','sema')
+--select top 5*from ogrenci 
+--select top 30 percent *from ogrenci 

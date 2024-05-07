@@ -1,0 +1,27 @@
+--create database kütüphane2
+
+--create table ogrenci2(
+--ogr_no int identity (2021,1),
+--ogr_ad varchar(15),
+--ogr_soyad varcHar(15),
+--ogr_sýnýf varchar(4)
+--)
+--insert into ogrenci2 values
+--('yusuf','yiðit','10-b')
+--insert into ogrenci2 values
+--('yusuf','yiðiy','10-b'),
+--('sema','bakýr','10-c'),
+--('rýza','koç','9-b'),
+--('filiz','nnur','10-d'),
+--('fidan','baðlý','10-b'),
+--('ali','çakmak','11-b'),
+--('derya','nazlým','10-c'),
+--('kemal','aslan','9-a'),
+--('ayþe','can','10-b'),
+--('þenol','canan','11-
+
+--select*from ogrenci2
+--update ogrenci2 set ogr_aþý='var'
+--select*from ogrenci2
+--update ogrenci2 set ogr_ad='mustafa' where ogr_no=2021 
+--update ogrenci2 set ogr_aþý='yok' where ogr_sýnýf='10-b'
