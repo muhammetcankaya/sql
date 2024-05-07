@@ -1,0 +1,66 @@
+View Nedir ?
+Kısaca sorguları basitleştirmek için veri tabanını kullanarak bize sanal tablo verecektir 
+tablo gibi davranır içinde veri bulunmaz 
+İlişkişel veri tabanında tablo birleştirmek için kullanılır sıkça 
+insert update gibi yapılar view ile kullanılmaz
+
+Bu yapı aslında çok faydalı diyelimki biz çok ilişkili bir veri tabanı kullanıyoruz bütün verilerde toplam
+100 e yakın (çok daha fazla olabilir) sutun vardır ama biz bunlardan 5 tanesini joinle çekebiliyoruz
+fakat bunnu kaydetmeyi bu kısma kadar bilmiyorduk fakat artık view yapısıyla bunu biliyoruz yani
+ilişkisel veri tabanında ilişkiyi kurup yeni tabloyu oluşturup kayıt etmeti öğrendik
+
+
+--View  yapısı
+--create view isim as select sorgu yapısı 
+--şeklinde kullanılır
+--Create view örnekview as select*from Hasta
+
+--select * from Hasta
+----Bu yapı bize normal bildiğimiz hasta tablosunu getirirken 
+
+--select * from örnekview
+----Bu yapı bize sanal tabloyu yani view olarak kaydettiğimiz tabloyu 
+----getirdi 
+
+--Create view örnekview2 as select 
+--Hasta_Ad+' '+Hasta_Soyad as 'Hasta AD SOYAD',datediff(year,Hasta_Dgmtrh,getdate()) as 'Hasta YAŞ'
+--,Dok_Ad+' '+Dok_Soyad as 'Doktor AD SOYAD'
+--from Hasta inner join Doktor on Hasta.Dok_id=Doktor.Dok_id
+--SELECT*FROM örnekview2
+---- Bu yapı tam bir örnek varya
+---- Sonunda istediğim şeyi yapacak komut 
+---- Ne yaptık hasta ad soyad birleştirdik hasta yaş birleştirdik doktor ad birleştirdik
+---- Doktor ve hasta ayrı tablolardaydı bunları ilişkiselendirip tek tabloda yazdık ve 
+---- Bu tabloyu kayıt ettik
+---- aslında bu yapıyı kullanarak sql de bunu tekrar tekrar çağırmak 
+---- ihtiyacımızdan kurtulduk
+
+---- Bunları silmek için drop view örnekview komutunu kullanırız
+-- DİYELİMKİ biz kurguladığımız view yapısında arama sorgu yapmak istiyoruz oda şöyle 
+
+--select [Hasta AD SOYAD] from örnekview2 
+---- eğer yapıyı böyle parentezli kullanmaz isem bana işlem yapmaz
+--select * from örnekview2 where [Hasta YAŞ] <= 54 and [Hasta YAŞ]>=51 
+----Yine kullandık yapıyı ama parantezleri unutmuyoruz ve 
+---- column çağırırken viewdeki takma adları kullanmamız gerekmektedir 
+
+--View yapısıyla bir tabloyu değiştirebilriiz alter komutuyla yada bunun yerine bence silip yenisinide oluşturabiliriz
+--çok bir fark yok ama yinede gösteerelim
+-- önceki örnek 2 yapısı yukarda zaten create yerine alter yazıcam
+--alter view örnekview2 as select 
+--Hasta_Ad+' '+Hasta_Soyad as 'Hasta AD SOYAD',datediff(year,Hasta_Dgmtrh,getdate()) as 'Hasta YAŞ'
+--,İl as 'Hasta Şehir'
+--,Dok_Ad+' '+Dok_Soyad as 'Doktor AD SOYAD',Bolum as 'Doktor Bölüm'
+--from Hasta 
+--inner join Doktor on Hasta.Dok_id=Doktor.Dok_id
+--inner join il on Hasta.İl_id=il.il_id
+--inner join Bolum on Doktor.Bolum_id=Bolum.Bolum_id
+--SELECT*FROM örnekview2
+
+
+
+View'leri Microsoft Query İle Sorgulamak 
+Bu yapı önemli ilerde bakarız 
+excel ile sorgu yaparak sql deki tabloyu çekmek üzerinde filtreleme yapmak için kullanılabilir
+
+

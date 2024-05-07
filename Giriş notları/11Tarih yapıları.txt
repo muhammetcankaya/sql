@@ -1,0 +1,37 @@
+Getdate
+
+select  getdate()  as  'Şuan'
+şuandaki saniyeyi verecektir
+
+datepart
+
+select datepart(YEAR,getdate())
+select datepart(MONTH,getdate())
+select datepart(day,getdate())
+select datepart(WEEKDAY,getdate())
+select datepart(WEEK,getdate())
+select datepart(HH,getdate())
+select datepart(HOUR,getdate())
+select datepart(MINUTE,getdate())
+select datepart(SECOND,getdate())
+select datepart(MICROSECOND,getdate())
+burada yıl ay gun haftanın günü saati saat ve dakikayi gibi parçalayabilir
+get date suan o kısmı değiştirebiliriz
+
+select*from Musteri where DATEPART(year,Dogum_trh)=1999
+1999 da doğanları getirdik
+
+
+datediff funktiyon
+
+select datediff(YEAR,Dogum_trh,getdate()) as 'Müşteri yaş' from Musteri
+Şimdi biz date setimizde müsterş tablosunu aldık oaradan doğum tarihleri ile şuan arasındaki farkı yıl olarak bulduk
+
+
+select dateadd(day,20,getdate())
+20 gün sonrasına gider
+
+
+select datename(MONTH,getdate())
+March
+

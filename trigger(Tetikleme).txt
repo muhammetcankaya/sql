@@ -1,0 +1,165 @@
+--Triggers 
+--Bir tablo üzerinde yapılan bir işlemin başka tablodaki 
+--verileri tetiklemesi trigger yapısıdır 
+--örnek verirsek çok daha verimli ve anlamlı olacaktır
+
+--create table urun(
+--urun_id int identity(1,1) primary key ,
+--urun varchar(15)
+--)
+
+--insert into urun values 
+--('Buzdolabı'),('Ütü'),('Televizyon'),('Bilgisayar')
+
+--create table stok(
+--stod_id int identity(1,1) primary key,
+--urun_id int ,
+--stok_sayısı int
+--)
+
+--insert into stok values(1,500),(2,300),(3,250),(4,150)
+
+--create table satıs(
+--satıs_id int identity (1,1) primary key,
+--müsteri_ad_soyad varchar(30),
+--satın_alınan_urun int,
+--adet int
+
+--)
+--Burada uygulama yapacağımız tablo yapısını kurduk 
+--Biz başka bir tabloda insert alter veya drop 
+--yapılarından birini uyguladığımızda başka bir tabloyu veya yine 
+--aynı tabloyu etkilemesini istiyorsak 
+
+--after veya for trigger
+--yapısını kurmamız gerekiyor
+--Bu tabloda bizim ürünler var stokları var ve satışları var
+--e satış yapılırsa urun stokunda azalma olması gerkeir 
+--burda bir triger kurabiliriz dimi bunun gibi ypaıları 
+--yani satış yapıldıüı anda stokda azalma olması gerekitiğini
+--trigger yapısıyla elimizle değilde otomatik gerçekleşmesini 
+--sağlayacağız
+
+-- ınstead of trigger 
+-- Bunu anlamadık 
+
+---create trigger isim on tabloisim trigger_tipi(yapılacak işlem) as kod yapısı
+--yapı böyle kuruluyor
+
+-- Ben satıs tablosuna bir şey satıldığında stokdan düşmesini
+--istiyorumm
+
+--İNSERT YAPISI ÖRNEĞİ
+--create trigger stok_azalt --trigger adı
+--on satıs -- tetiklenmesini sağlayan tablo
+--after insert -- tetikleyici komut
+--as 
+--begin
+--declare @satın_alınan_urun int
+--declare @adet int
+--select @satın_alınan_urun=satın_alınan_urun,
+--@adet=adet from inserted--değişkenleri oluşturdum 
+---- Bu değişkenler ile satın alınnan ürünü ve adetini tutucam 
+----Şimdi update yapısıyla stok tablomda değişiklik yapıcam tek-tikleyecem yani
+--update stok set stok_sayısı=stok_sayısı-@adet
+----Burada stok sayısını güncelledik
+--where urun_id=@satın_alınan_urun
+----Burada güncellememiz gereken stok sayının hangi ürün olduğunu 
+----söyledik
+--end
+----Şimdi yapı kuruldu
+--select *from stok
+--select*from satıs
+--insert into  satıs values('mehmet',1,150)
+----Burada bu mehmeti eklediğimiz anda 
+----Stokdaki 1 id li ürün 150 azaldı
+
+
+--Yapının çok iyi anlaşılacağını düşünüyorummm
+
+--DELETE YAPISI ÖRNEĞİ
+
+--SELECT*FROM satıs
+--select*from stok
+--ŞİMDİ İSE 
+--DİYELİM ki ahmet aldığı 150 adetten vazgeçti veya 
+--mehmet bu vazgeçme sonucunda o aldığı adetleri nasıl geri düşebiliriz
+--tabiki de trigger yapısıyla
+
+--create trigger stok_ekle 
+--on satıs
+--after delete
+--as
+--begin
+--declare @satın_alınan_urun int
+--declare @adet int
+--select @satın_alınan_urun=satın_alınan_urun,
+--@adet=adet from  deleted --(bak bu daleted yapısı 
+---- arkada sildiklerimizi tutan bir sanal tablo aslında )
+
+--update stok set stok_sayısı=stok_sayısı+@adet
+--where urun_id=@satın_alınan_urun
+--end
+
+--SELECT*FROM satıs
+--select*from stok
+
+--delete from satıs where satıs_id=1
+--delete from satıs where satıs_id=2
+--delete from satıs where satıs_id=3
+--delete from satıs where satıs_id=4
+--delete from satıs where satıs_id=5
+
+--Bütün satırları sildim ve stoklar eski 
+--haline döndü
+
+
+--Update trigger yapısı(update güncelleme)
+--şimdi biz satış tablomuzda satıs adedini
+--değiştirdiğimiz de stokdaki adette değişiklik olsun
+--istiyoruz
+--hali hazırda ahmet can 5 adet 1 . üründen almmış
+--onu 25 yaptığımızda satış adedinin nasıl
+--değiştiğini göreceğiz
+--bunun sistemini kurgulayalım
+--select*from satıs
+--select*from stok
+--create trigger guncelleme
+--on satıs 
+--after update -- update yapısı olduğunu söyledik
+--as
+--begin
+--declare @satın_alınan_ürün int
+--declare @adet int
+--declare @yeni int
+--select @satın_alınan_ürün=satın_alınan_urun,
+--@adet=adet from deleted --önce silme işlemi yapacağı için silinen veriyi değişkenlerde tuttu
+--select @satın_alınan_ürün=satın_alınan_urun,
+--@yeni=adet from inserted-- sonra ekleyeceği için eklenen veriyi değişkenlerde tuttu 
+
+--update stok 
+--set stok_sayısı=stok_sayısı+(@adet-@yeni)--burada eskisiyle yenisinin farkını alıp stok sayısına eşitledik 
+--where urun_id=@satın_alınan_ürün
+--end
+
+--update satıs set adet=15
+--where satıs_id=6
+----Burada 5 iken 15 yaptık bakalım ne olacak
+---- yapı çalışıyor
+
+--İNSTEAD OF TRİGGER
+--Şimdi aslında bu yapı kullanıcı bir işlem yaptığında onun yerine başka bişey yapsın program demektir
+--Diyelimki kullanıcı bir veri silmek istiyor satış tablosundan 
+--Buna izin vermek istemiyorsak ne yapacak bunu trigger yapısıyla kuracaz silmeye kalktığında hayır silemezsin diyebileceğiz
+--e tabı bunun yerine silme işlemi yaptığında sildiği veriyi başka bir tabloya aktarabilceğimiz bir yapıda kurulabilir 
+--aslında bunu kursak güzel bir örnek olacak ama şuan değil şuan sadece silme işlemi yaptığında buna engel olalım
+--create trigger engelleme 
+--on satıs
+--instead of delete --silmek yerine şunu yap 
+--as 
+--begin 
+--raiserror('Bu tablo üzerinde silme yetkiniz yoktur',16,1)
+--end
+--select *from satıs
+--delete from satıs where satıs_id=6
+----bu komutu girdiğimde veriyi silemeyeceğimizi bize söyledi

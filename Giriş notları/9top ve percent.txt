@@ -1,0 +1,12 @@
+Top 
+belirbi bir sayıda satır çekmek istiyorsak bu yapıyı kullanmamız gerekmektedir.
+select  top n * from tablo adı
+
+select top 5*from ogrenci
+ilk beş satırı getirdi
+
+percent 
+Burada ilk beş değilde yüzde beş getirebilme şansımız olacak
+
+select top 40 percent *from ogrenci  
+veerilerin yüzde 50 si gelecektir

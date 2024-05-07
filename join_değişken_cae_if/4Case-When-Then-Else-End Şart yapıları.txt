@@ -1,0 +1,44 @@
+Case...When...Then...Else...End Şart Yapısı
+Case
+Select sütün_adı,case şart sütunu when then şart sağlanırsa bu işlemi yap else şu işlemi yap
+ yaş 60 dan büyükse yaşlı küçükse genç
+
+
+select 
+	case hasta_cinsiyet
+		when 'E' then 'Erkek'
+		else  'Kadın'
+	end as cinsiyet
+	from Hasta
+
+
+select Hasta_Ad+' '+Hasta_Soyad as ad_soyad,datediff(YEAR,Hasta_Dgmtrh,GETDATE()) as Yaş,
+	case 
+		when  datediff(YEAR,Hasta_Dgmtrh,GETDATE())>=60 then 'Yüksek Risk'
+		when  datediff(YEAR,Hasta_Dgmtrh,GETDATE())<=60 and datediff(YEAR,Hasta_Dgmtrh,GETDATE())>=52 then 'Orta Risk'
+		else 'Risk yok'
+		end
+		as 'Risk Durumu'
+		from Hasta
+
+ Bu yapı bize böyle olursa şunu getir böyle olmazsa şunu getir der bu yapıyı anlatmak gerekirse 
+hasta ad soyad ve yaşını zaten görücez case
+yapısını açtıktan sonra when ile ilk şartı verdim yaşı 60 dan büyükse büyük risk yazdırsın yanına
+yaşı 60-52 arasında ise orta risk desin küçükse risk yok desin dedik 
+bütün bu ris değerlerini yaşların yanına yeni bir sutun olarak atadık aslında 
+excel de olduğu gibi hücre bazlı bir eğer yapısı kurgulamaktan farksız
+
+
+
+select Dok_Ad,Bolum,
+case Bolum
+	when 'Genel Cerrahi'  then 'yüksek riskli'
+	when 'Fizik Tedavi ve Rehabilitasyon'  then 'yüksek riskli'
+	when 'Göz Hastalıkları'  then 'yüksek riskli'
+	else 'az riskli'
+	end as 'risk'
+from doktor inner join bolum on Doktor.Dok_id=Bolum.Bolum_id
+
+Burada da bu yapıyı join yapısıyla birlikte kullandık
+
+

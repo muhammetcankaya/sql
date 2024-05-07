@@ -1,0 +1,21 @@
+tablo içerisindeki verileri silmek için kullanılan iki ayrı method
+delete formatı verilerin sadece görüntüde yok ediyor
+verilerin tam anlamıyla bellekteki yerleriyle silinmesi için yapmamız gereken
+yapı truncate yapısıdır
+
+mesela biz 5 ıd deki satırı silmek istiyoruz ne yapmalıyız
+
+--delete from yazar where Yazar_ID=5
+burada ıd numarası 5 olan kişiyi sildik 
+
+--insert into yazar values
+--('zeynep','çatal')
+--delete from yazar where Yazar_ad='zeynep'
+burada once zeynep çatalı ekledik bir kaç kez
+sonra dedimki adı zeynep olanları sil
+
+bak bu silme yöntemi veri anlamında siler ama kimlik anlamında silmez
+yani 5 ıd numrasını başkasına veremezsin 
+
+truncate table ogrenci2
+butun tabloyu siler 

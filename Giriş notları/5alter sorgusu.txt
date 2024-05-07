@@ -1,0 +1,31 @@
+alter(değiştirmek)
+server içerisinde veri tabannı nesnesini değiştirmek için kullanılabilir
+tablolar sutunlar falan gibi şeyleri değiştirmek
+veri değil nesneler üzerinde değişikliğe gitmek için kullanılır
+şöyle güzelce anlatmak gerekirse bir tablomuz var ve bu tabloda
+sutunların veri yapılarını değiştirmek tabloyu değiştirmek gibi bir ihtiyaçta kullanılabilir
+
+Ögr_no	ogn_ad	ogr_soyad ogr_cisiyet ogr_sınıf
+2021	yusuf	yiğiy	erkek	10-b
+2022	sema	bakır	kadın	10-c
+2023	rıza	koç	erkek	9-b
+2024	filiz	nnur	kadın	10-d
+2025	fidan	bağlı	kadın	10-b
+2026	ali	çakmak	erkek	11-b
+2027	derya	nazlım	kadın	10-c
+2028	kemal	aslan	erkek	9-a
+2029	ayşe	can	kadın	10-b
+2030	şenol	canan	erkek	11-a
+
+böyle bir tabloyla çalıştığımızı düşünürsek
+
+--alter table ogrenci add ogr_baba_adi varchar(15)
+bunu çalıştırdığımda yapacağı şey ogrenci tablosuna ogr_baba_adi adlı bir sutun eklemek olacaktır
+
+alter table ogrenci drop column ogr_baba_adi 
+şimdide bu sutunu sildi hahaha
+
+
+alter table ogrenci alter column ogn_ad char(10)
+ogrenci ad sutunu varchar(15) iken bunu char(10 yaptık)
+bu alter yapısı baya geniş 

@@ -1,0 +1,57 @@
+select ad,upper(ad) as 'Büyük harf',lower(ad) as 'Küçük harf'from Musteri
+
+Bu bize ad sutununu en sağda yanına büyük harfler ile onnun yanına küçük harfler ile yazar
+
+select ad,upper(ad) as 'Büyük harf',
+lower(ad) as 'Küçük harf',len(ad)from Musteri where ad like 'A%'
+burada ismi a harfi ile başlayanların küçük harf büyük harf olarak şey yaptık işte
+
+
+string fonksiyonların devamı
+
+Substring(exceldeki parça al fonksiyonu)
+select SUBSTRING(Sehir,1,3) from Musteri
+1. index dahil ilk 3 indeksi bize getirdi
+
+left
+select left(Sehir,4) from Musteri
+soldan başlayarak 4 karakter aldık
+right
+select right(Sehir,4) from Musteri
+sağdan başlayarak 4 karakter alır
+
+Reverse(string ifadeyi tersten yazar )
+select top 50 REVERSE(Sehir) from Musteri
+ilk 50 şehiri tersten yazdırdık
+
+Concat(exceldeki birliştir yapısıyla aynı)
+select top 10 concat(Sehir,', '+Bolge,' Bölgesindedir') as 'Bölge tanımlama' from Sehir
+Adana, Akdeniz Bölgesindedir
+Adıyaman, Güneydoğu Anadolu Bölgesindedir
+Afyonkarahisar, Ege Bölgesindedir
+Ağrı, Doğu Anadolu Bölgesindedir
+Amasya, Karadeniz Bölgesindedir
+Ankara, İç Anadolu Bölgesindedir
+Antalya, Akdeniz Bölgesindedir
+Artvin, Karadeniz Bölgesindedir
+Aydın, Ege Bölgesindedir
+Balıkesir, Ege Bölgesindedir
+
+Replicate(birden fazla tekrarlı işlemi yapar)
+select replicate('*',7)
+*******
+select concat(right(Tel,4),REPLICATE('*',7)) as telefon from musteri
+4281*******
+8060*******     bunu yaptık numaraların son  hanesini * a çevirdik
+2403*******
+7186*******
+9211*******
+1488*******
+9866*******
+4752*******
+7809*******
+0075*******
+
+
+
+

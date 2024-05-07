@@ -1,0 +1,48 @@
+if exists yapısı
+if kosul begin sonuç end else begin sonuç2
+
+declare @sayi int
+set @sayi=1020
+
+if @sayi=100 
+	begin 
+	print 'Sayı değeri 100'
+end
+	else
+	print 'Sayı değeri 100 den farklıdır'
+
+declare @Kadın float,@erkek float,@sonux float
+set @kadın=(select count(Hasta_Cinsiyet) from hasta where Hasta_Cinsiyet='K')
+set @erkek=(select count(Hasta_Cinsiyet) from hasta where Hasta_Cinsiyet='E')
+set @sonux=@kadın/(@erkek+@kadın)
+print @sonux
+if @sonux>=0.5
+begin 
+print 'Kadın hasta oranı %50 den büyüktür'
+end
+else 
+print 'Kadın hasta oranı %50 den büyük değildir'
+
+
+
+if exists
+ Bu yapı bize bir değerin  tablo içerinde varmmı yokmu onu bulmamıza yardımcı olur
+ Mesala 33844372688 tc li bir hasta varmı onu görelim
+
+if exists (select *from Hasta where Hasta_Tc=33844372688)
+print 'Kayıt var'
+else 
+print 'kayıt yok'
+ kayıt varamı yokmu kontrol etti ve sonuçlları gösterdi
+
+son kısmı tekrar bak 
+bolum id 54 olanı 61 olarak değiştir
+
+
+if exists (select *from Doktor where Bolum_id=54)
+begin
+update Doktor set Bolum_id=61 where (Dok_Ad='Ceren' or Dok_Ad='Aziz' or Dok_Ad='Rüzgar' or Dok_Ad='Cemile' or Dok_Ad='Hira nur')and Bolum_id=54
+end
+
+Bu kurduğum yapı ile bölüm id 54 olan ve bu adlara sahip olanların bolum id lerini 61 olarak değiştir komutunu verdim 
+tabi bundan önce bolum id 54 olanları buldum burada olmayanları değiştirebilirdim tabi

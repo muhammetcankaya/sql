@@ -1,0 +1,42 @@
+
+--Index-4 Included Columns (performansı dahada arttıracak)
+--Şimdi bir veri setinde priimary key yapısı varsa eğer burada tarama yavaşlar 
+--Bunun için nunclustered index yapısı kullanabiliriz yada ıncluded columns yapısı kullanılabilir 
+--Bu kısımda ıncluded columns yapını görcez
+--Ayrıca bize kullanmamız gereken index yapısını bize sql söyler 
+-- ctrl + l yaparsak
+select*from Musteri where sehir='ankara'-- şehiri ankara olanları bize getir dedik 
+--8643 LİK BİR İŞ YAPTI
+--ctrl +l yaptığımızda 
+--CREATE NONCLOSTERED İNDEX AND INCULDED COLUMNS
+/*
+USE [Ornek]
+GO
+CREATE NONCLUSTERED INDEX [<Name of Missing Index, sysname,>]
+ON [dbo].[Musteri] ([Sehir])
+INCLUDE ([ID],[Ad],[Soyad],[Cinsiyet],[Dogum_trh],[ilce],[Tel])
+GO
+*/
+--VE BİZE SÖYLEDİĞİ ŞEY BUNU YAPMAMIZ
+USE [Ornek]
+GO
+CREATE NONCLUSTERED INDEX İSİM
+ON [dbo].[Musteri] ([Sehir])
+INCLUDE ([ID],[Ad],[Soyad],[Cinsiyet],[Dogum_trh],[ilce],[Tel])
+GO
+select*from Musteri where sehir='ankara'
+--944 YAPTIĞI İŞ BUNA DÜŞTÜ ARADA BÜYÜK FARK VAR
+
+
+
+--select *from Musteri where sehir='ankara'
+----maliyet=8643 burada maliyet page sayısı fazlaysa çok çalışır gibi
+----9079 Bu ıd yi primary key yapmış halimiz
+--USE [Ornek]
+--GO
+--CREATE NONCLUSTERED INDEX İSİM
+--ON [dbo].[Musteri] ([Sehir])
+--INCLUDE ([Ad],[Soyad],[Cinsiyet],[Dogum_trh],[ilce],[Tel])
+--GO
+----831 buda nonclustered ve ınclude yapılarıyla olan maliyet
+----Baya fark var

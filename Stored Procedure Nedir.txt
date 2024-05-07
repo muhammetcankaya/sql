@@ -1,0 +1,51 @@
+AD-HOC SORGU
+
+1-Query
+2-Parse(ayrıştırma)
+3-Optimize(iyiliştirmek)(minumum performansla çalışma)
+4-Compile(derleme) 
+5-Execute(Çalıştırma)
+6-Result(sonuç)
+
+Stored procedure(saklı yordam)
+1- Parse 
+2- Compile
+3- Execute
+
+Aradaki fark ne İş dinamik bir yapıya girdiği zaman oradaki trafiği azaltan 
+stored procedure o yüzden önemli
+Bizim yazdığımız kod bloklarını bir başlık ile yapabiliyoruz
+Bir defa derlenir ve o derleme yapısını bünyesinde saklar 
+procedure oluşturduktan sonra 
+database programmability stored procedure kısmından görebiliriz bu procedure leri
+
+Bu procedure ler başka programlama dilleri tarafından çağıralabilir
+
+--Stored procedure
+--create procedure isim as select sorgu 
+--execute ile çağırılır 
+--drop ve alter sorguları çalışır
+select *from Hasta
+--Haydi bir tane procedure oluşturalım 
+
+--create procedure pro1hasta as 
+--select Hasta_Ad+' '+Hasta_Soyad as 'Hasta adsoyad'
+--,Hasta_Tc from 
+--Hasta 
+----Şuanda yapı oluşturuldu haydı çağıralım
+--execute pro1hasta
+-- oluşturduğumuz procedure görücez şimdi
+--Şimdi bunları silip yeni proc oluşturalım hatta silmeye gerek yok ya
+--Bu yapacağım örnekte bir procedure de nasıl where order by
+-- Gibi yapılar kullanılır bunu göreceğiz
+
+--create procedure pro2doktor 
+--@cins varchar(1)='E'
+--as 
+--select Dok_Ad+' '+Dok_Soyad as 'Doktor Ad Soyad'
+--,Dok_Tel,Bolum from Doktor
+--inner join Bolum on Doktor.Bolum_id=Bolum.Bolum_id 
+--where Dok_Cinsiyet=@cins
+
+
+Stored Procedure kapsamlı örnek

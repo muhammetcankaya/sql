@@ -1,0 +1,73 @@
+no	kategori		alfiyat	satfiyat	adet	ciro
+8614	OYUNCAKLAR	26,28	36,9	15	553,5
+8615	CAMASIRLAR	14	20,95	17	356,15
+8616	YOGURT		6	8,45	10	84,5
+8617	SUT		10,5	15,95	8	127,6
+8618	SUT		6,48	7,776	10	77,76
+8619	PEYNIRLER	12	14,4	12	172,8
+8620	SUT		36,75	37	16	592
+
+Şimdi yıkarıdaki veriye baktığımızda biz ciroları adetleri falan görüyoruz
+ama diyelimki cironun toplamını istiyorum ama burada bütün hepsini bulmayı
+biliyorum sadece benim istediğim şey ise şu bu ciroların kategorilere göre
+bulmak bunları bulduğumuz zaman oyuncak da ne kadar ciro
+camasırda ne kadar gibi bir güzellik elde etmiş olacaz
+
+-- select sutunlar..,fonksiyon(parametre) 'isim' from tabloadı group by gruplandıralacak sutün
+
+select Urun_kategori,sum(ciro) as 'toplam ciro'  from Urun group by Urun_kategori 
+KIRTASIYE	277285,029854
+KITAP		274228,029930536
+OYUNCAKLAR	196206,4590844
+AYAKKABI-TERLIK	177343,53102
+MUTFAK ESYA-	161959,6913184
+CAMASIRLAR	99320,41806
+BISKUVI		92424,0326399999
+
+burada ne yaptık ciroları kategorilere göre toplayarak grupladık 
+
+select Sehir,count(Sehir) as 'Kişi sayısı' from Musteri group by Sehir
+burada da her şehirde kaç insan var bunu grupladık 
+Adana		38213
+Adıyaman		22384
+Afyonkarahisar	45747
+Ağrı		20315
+Aksaray		20375
+Amasya		17837
+Ankara		101121
+Antalya		50545
+	
+select Bolge,sum(Nufus) as 'toplam nufus' from Sehir group by Bolge order by [toplam nufus] desc
+Burada bölgeleri nufuslarına göre gruplandırdık
+Marmara			10937349
+İç Anadolu		6027919
+Ege			3555820
+Akdeniz			3128686
+Güneydoğu Anadolu		2497066
+Doğu Anadolu		1900753
+Karadeniz			1764299
+
+müsteri kısmına yaş adlı bir sutun ekle int olsun
+yaşlarını hesapla
+
+
+select bolge,sum(Nufus) as 'Ortalama nufus' 
+from Sehir group by bolge having bolge='Akdeniz'
+
+şimdi burda bu sufusların toplarımlarını bölgelere göre grupladım 
+e ben burdan akdeniz bölgesindeki toplamı görmek istiyorsam yalnızca
+yapmam gereken şey where yapısı kullanmak gibi geliyor 
+fakat gruplama yaptıktan sonra having yapısını kullanman gerekmektedir
+
+
+
+
+
+
+
+
+
+
+
+
+

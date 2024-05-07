@@ -1,0 +1,92 @@
+Dışardan indirdiğimiz database i nasıl çekebiliriz 
+Normal tıkladığımızda bunu açmayacaktır
+bu dosyaları
+kesiyoruz
+C dosyası ordan program file ordan sql server en alt ordan msql
+ordan data yerine dosyaları atıyoruz
+sonra sql girip data base kısmına sağ klik ordan attact yapıyoruz
+ordan add dedikten sonra dosyamız orda gözükecek onu 
+ordan almış olacağız
+Veri tipleri 
+Metinsel veri tipleri
+char:
+char(sayı) 
+sayı kadar karakter girilebiliyor unikod yapısını desteklemiyor
+nchar(sayı)
+unikodu destekliyor
+varchar()#verinin karakteri kadar yer kaplar (manlıklı)
+nvarchar()verinin boyutu kadar yer kaplar unikodu destekler
+text unikodu desteklemez girdiğin kadar yer kaplar
+ntext
+binary sabit uzunluktaki veri tiplerinde kullanılır
+varbinary(max) girilen karakter kadar yer kaplar
+image resim dosyaları için
+
+sayısal veri tipleri 
+bit bir bayt uzunluğundaki verilerde kullanılır evet hayır erkek kadın gibi
+int 4 bayt büyüklüğünde
+bigint 8 bayt büyüklüğünde
+smalint 2 bayt büyüklüğün int verileri alır ama tam sayı 
+tinint 1 bayt büyüklüğüne sahip 
+decimal - numerik ondalık yapıları depoları tutuabilir ondalik ve tam sayı tipindeki
+money parasal veri tutar
+smallmoney 
+date yıl gün ve ay formatında veri saklar 
+smalldatetime yıl gün ay saat saniye saklar
+datetime 
+datetime2 
+time saat verilerini saklar 
+datetimeofset() ülkelere göre değişen saat ve zaman faarkını saklar
+sql_variant veri tipi belli değilse kullanılır ama çok yer kaplar
+geometri korninat sistemlerine ait verileri saklamak için kullanılan bir veri tiipidir
+geograpthy coğrafi kordinatlar
+hierarchyid hiyararşik veri tiplerini saklar
+
+Normalizasyon nedir                                      							anlaşılır ekonamiye sorarsan çopk önemli
+Tekrarlanan verilerden kurtulmak
+Veriler arası tutarlığı sağlamak için yapılan bir işlem
+Eğer senin tekrarlanan bir verin varsa bunu parçala 
+ve sonra bu tablolara bir özel isim ver sonra bunlar arasında 
+ilişki kurki işimiz kolay olsun 
+yani bu iliişkisel veri tabanı demek 
+şimdi ayırdığımız bu tablolarda id ler oluşturacağız
+Bunu dahada iyi anlayacağız
+
+Veri Girişi:
+normal olarak elle veri girme işi tamamen tıklayarak ve yazarak 
+yapılan birşey kodlar ile nasıl yazılıyor
+
+SQL-EXCEL VE EXCEL-SQL VERİ TRANSVERİ
+kanka buda tıkla yao mevzusu ya
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

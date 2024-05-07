@@ -1,0 +1,25 @@
+COUNT
+select 	count(*) 	as	 'Toplam Şehir Sayısı' from Sehir
+
+Burada bu yapı bize toplam şehir sayısını verecektir 
+aslında şöyle anlatalım şehir tablosuna gitti ve oradaki 
+şehirleri saydı dersek daha doğru olur
+
+select count(*) as 'Toplam Şehir Sayısı' from Sehir 
+where Sehir like 'A%'
+Bu yapıda A ile başlayan bütün şehirleri sayacaktır
+
+select count(Urun_kategori) from Urun where Urun_kategori='KIRTASIYE'
+
+urun kategorilerinde kaç tane kırtasiye oldğunu bulduk
+
+select sum(datepart(YEAR,GETDATE())-datepart(YEAR,Dogum_trh))/count(Dogum_trh) from Musteri 
+bu baya iyi incele yaş ortalamassı aldım burada
+
+select*from Urun
+select min(ciro) as 'min' from Urun
+select max(ciro)as 'max'from Urun
+select*from Sehir
+select min(Nufus) from Sehir
+select sum(Nufus) from Sehir
+burada min max ve sum fonksiyonlarını kullandık

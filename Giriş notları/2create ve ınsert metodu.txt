@@ -1,0 +1,22 @@
+--create database kütüphane2
+
+create table ogrenci2(
+ogr_no int identity (2021,1),
+ogr_ad varchar(15),
+ogr_soyad varcHar(15),
+ogr_sınıf varchar(4)
+)
+
+
+şimdi önce bir kütüphane 2 databasesini oluşturduk burada ondan sonra
+ogrenci tablosunu oluşturup içlerine sutunlar kurdur  identity kısmında
+buraya ıd oluşturdur 2021 den başlayarak 1 er artan id ler
+orada int varchar lar veri tipleri bunları belirttik
+
+insert into ogrenci2 values
+('yusuf','yiğit','10-b')
+Burada bunları yaptıktan sonra veri ekledik insert yapısıyla 
+burada şöylede kurabilirdik yapıpyı
+
+insert into ogrenci2(ogr_ad,ogr_soyad,ogr_sınıf) values ('yusuf','yiğit','10-b')
+buda farklı bir bakış açısı

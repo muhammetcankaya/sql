@@ -1,0 +1,65 @@
+Bu yapı bize bir şart ile kullanma olanağı sağlar 
+
+select*from ogrenci where ogn_ad='mustafa'
+mesela burada oğrenci tablosuna giderek ogn_adı mustafa olanları getirecektir
+
+select*from ogrenci where ogr_cisiyet='erkek'
+burada da erkek olanları getirecek olan yapı bu şekildedir
+
+Burada = diye kullandığımız kısım için çeşitli matematiksel 
+operatörler kullanılabilir
+
+<> eşit değildir    > 	<	>=	<=
+select*from ogrenci where ogr_no <> 2022
+
+select*from ogrenci where Ögr_no > 2022
+
+
+yine where yapısı içinde kullandığımız between kullanımı
+
+select*from ogrenci where Ögr_no between '2024' and '2028'
+Öğrenci no su 2024 ve 2028 arasında olan öğrencileri bize getirecektir
+
+like yapısını inceleyelim yine Buda where içinde kullanılır
+
+select*from ogrenci where ogn_ad like 'f%'
+Öğrenci tablosuna git ogrenci adları içerisinde f harfi ile başlayan bütün 
+satırları getir
+select*from ogrenci where ogn_ad like '%f'
+Öğrenci tablosuna git ogrenci adları içerisinde f harfi ile biten bütün 
+satırları getir
+select*from ogrenci where ogn_ad like '%ş%'
+Öğrenci tablosuna git ogrenci adları içerisinde ş harfi ile barındıran bütün 
+satırları getir.
+Burada tek harf kullanmamıza gerek yoktur birden fazla harf kullanılabilir
+
+
+Buraya ekstaradan and ve or yapısını burada gösterelim tabi gerekliyse
+
+
+select*from ogrenci 
+where ogr_cisiyet='erkek' and ogr_sınıf='10-b'
+
+Burada hem erkek hemde 10-b de olanları bize getirecektir
+
+select*from ogrenci 
+where ogr_cisiyet='erkek' or ogr_sınıf='10-b'
+
+Böyle or ile yazdığımda ise şunu yapacaj hem erkek olanları hemde 10-b de
+olanları bana getirecektir
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

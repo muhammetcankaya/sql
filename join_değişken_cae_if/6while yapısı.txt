@@ -1,0 +1,35 @@
+--WHİLE DÖNGÜSÜ
+-- WHİLE ŞART BEGİN İŞLEM END
+--declare @sayı int
+--set @sayı=0
+	
+	--while @sayı<=10
+	--begin 
+	--print @sayı
+	--set @sayı=@sayı +1
+	--end
+
+	--while @sayı<=100
+	--begin 
+	--print @sayı
+	--set @sayı=@sayı +2
+	--end
+
+--Birden yüze kadar sayıları ekrana bastırdı while döngüsü bizim
+--şartımız sağlanana kadar döngüyü devam ettirecektir
+
+--Şimdide birden yüze kadar sayıların toplamını getiren yapıyı kuralım
+
+--declare @sayı int,@sayac int
+--set @sayac=0
+--set @sayı=0
+
+
+--while @sayac<100
+--begin 
+--set @sayac=@sayac+1
+--set @sayı=@sayı+@sayac
+--end
+--print
+--@sayı
+-- birden 100 e kadar olan saıların toplamını elde ettik

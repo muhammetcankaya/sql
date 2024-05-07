@@ -1,0 +1,9 @@
+
+
+select sütün1,sutun2,... from tabloismi
+veya
+select*from tablaismi (tablo içerisindeki bütün sutunları getirir
+
+yani büyük bir verimiz var diyelim bundan belli sutunları çekmek istiyoruz
+veya belli tabloları 
+işte bu select yappısıyla bu tabloları seçebiliriz onlardan istediğimiz sutunları getirebiliriz

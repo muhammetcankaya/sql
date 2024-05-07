@@ -1,0 +1,56 @@
+--Programın bize veridiği yapılar dışında 
+--kendi imkanlarımızda yeni fonksiyonlar tanımlamak
+--Örneğin datediff yapısı iki tarih arasındaki 
+--farkı veren bir fonksiyondu Bunun gibi kendi fonksiyonlarımızı
+--yazabiliriz count yapısı mesala buda bir fonksiyon
+
+
+-----------User Defined Functions-----------------
+--Fonksiyonlar create yapısıyla oluşturulur 
+--alter yapısıyla güncellenir drop yapısıyla silinir
+--Create function isim(parametre tanımlama) returns veri_tipi as kod
+
+--Create function dbo.toplama(@x as int,@y as int)
+--returns int 
+--as
+--begin
+--	declare @sonuc as int
+--	set @sonuc=@x+@y
+--	return @sonuc
+--end
+
+--select dbo.toplama(5,10) as toplam
+--YAPI YUKARIDAKİ GİBİ 
+
+
+
+----------------User Defined Scalar Functions----------------
+
+--alter function dbo.birleştir(@ad varchar(15),@soyad varchar (15))
+--returns varchar(35)
+--as 
+--begin 
+--	return @ad + space(1) + @soyad 
+--end
+ 
+-- select dbo.birleştir(hasta_Ad,hasta_soyad) as  
+-- 'hasta ad soyad' from Hasta
+--Burada ne yaptık fonksiyon yazdık tablo üzerinde iki sutunu birleştiren bir fonksiyon yapısı bu
+
+
+
+-----------User Defined Table Functions-----------
+--Eğer bir fonksiyon yazdıktan sonra istediğimiz şey 
+--Bu fonksiyondan çıkan değerin bir tablo olmasıysa yapı aşağıdaki
+--gibi kurulur biz şunu yazalım 
+--bu fonksiyon bizim id sini girdiğimiz hastanın bilgilerini bize getirsin
+
+--create function dbo.bilgi(@hasta int)
+--returns table
+--as 
+
+--return
+--select*from Hasta where Hasta_id=@hasta
+--FONKSİYON BURADA BİTTİ
+--select *from dbo.bilgi(15)
+--İD=15 OLANI GETİRİDİK

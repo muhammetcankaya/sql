@@ -1,0 +1,10 @@
+in ve not yapıları 
+where ile birlikte kullanılır başka kullanım alanları vardır
+belli bir tabloda belli bir sutunda belli değerleri arar 
+in yazdığımda o değerler varsa getirir
+in not yazdığımda o değerler dışındakileri getirir
+
+select*from ogrenci where ogn_ad  in('ayşe','sema')
+ayşe ve sema yazan satırdaki bilgileri getirecek komut
+select*from ogrenci where ogn_ad not in('ayşe','sema')
+ayşe ve sema dışındakileri getirecek komut

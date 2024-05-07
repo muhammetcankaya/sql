@@ -1,0 +1,31 @@
+----(Index-2 Clustered ve Non Clustered Index)
+--create database indexleme
+--use indexleme
+
+----create table indexleme (ID int identity (1,1),sayı varchar(8000))
+
+--declare @sayı int
+--set @sayı=1
+
+5 milyon satırlık veri oluşturdum
+sıkıldığım için 2.5 de bıraktım
+--while @sayı<=5000000
+
+--begin 
+
+--insert into indexleme values('Kişi'+cast(@sayı as varchar))
+--set @sayı=@sayı+1
+--end
+
+--select *from indexleme
+select *from indexleme where ID=2315641
+--Şimdi hiç indexleme yapmadan bu ıd ye sahip veriyi 6 saniyede getirdi 
+--Haydi indexleme yapalım
+create clustered index isim
+on indexleme(ID)
+-- Şuanda indeşleme işlemimiz yapıldı
+select *from indexleme where ID=2315641
+-- Bu işlemi 0 saniyede yaptı 2.5 milyona yakın veri var 5 milyon olduğunu düşün birde
+
+Burada indexleme metoduyla çok verimli kullanım yaptık 
+nunclustered yapısını çok anlamadım ama

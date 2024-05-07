@@ -1,0 +1,20 @@
+-- Değişken tanımlama --
+--Declare@değişken ismi değişken tipi
+--set @değişken=değişken ataması
+--declare @x varchar(25)
+--set @x= (select Dok_Ad from Doktor where Dok_id=25)
+--select @x as Doktor_ad
+--Görüldüğü üzere yapıyı oluşturduk 
+-- bu değişken istediğim gibi içinde sutun değilde sadece bir
+--değer atabiliyoruz burada id=25 olan doktorun adını değişkene atadık
+
+--declare @x int, @y int,@z int
+--set @x=12
+--set @y=6
+--set @z=@x+@y
+--select @z as 'x+y'
+
+--declare @ad varchar(15) ,@soyad varchar(15)
+--set @ad='Anlaşılır'
+--set @soyad='Ekonomi'
+--select @ad + ' '+ @soyad as 'Ad Soyad'

@@ -1,0 +1,25 @@
+----Index-5 Unique Index Nedir?
+---- TEKRARLI İNDEXLERDE KULLANILMASI FAYDALIDIR
+-- biz verinin tekrarsız olduğunu belirtirsek eğer
+--sql veriyi bulduğunda sorguyu bırakır devam etmez
+--bu yüzden unique yapısı çok faydalıdır
+--Şimdi unique dediğimiz şey verinin tekrarsız olması 
+--nonunique de verinin tekrarlı olması 
+--mesala burada ankara tekrarlı olduğu iöin bizim kurduğumuz 
+--index yapısı unique değil nonunique
+--unique örnek yapalım
+--bunun için işlem yapmaya gerek yok sql bunu anlıyor
+
+
+select * from indexleme where sayı='kişi2245644'
+--maliyet 
+--9098
+--USE [indexleme]
+--GO
+--CREATE NONCLUSTERED INDEX [<Name of Missing Index, sysname,>]
+--ON [dbo].[indexleme] ([sayı])
+
+--GO
+-- indexlemeyi yaptık
+--maliyet=3
+--Ve buradaki her değer tekil olduğu için unique kurabiliriz

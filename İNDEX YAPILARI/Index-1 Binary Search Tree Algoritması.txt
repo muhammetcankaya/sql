@@ -1,0 +1,56 @@
+İndex yapısı veri tabanımızda olan bir veriye en az işlem ile 
+ulaşmamız için kullanılan 
+bir yapıdır bir veri tabanı nesnesidir
+(Index-1 Binary Search Tree Algoritması)
+İkili arama ağacı algoritması 
+bir sutun düşünelim 100000 tane veri var bunu arayıp bulmamız çok zor
+sql bunu indexleme methoduyla rahatça yapabilir 
+bunu yaparken arkada işleyen matematik 
+sayı tahmin oyunu gibi 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

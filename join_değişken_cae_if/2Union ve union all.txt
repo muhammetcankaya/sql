@@ -1,0 +1,18 @@
+-- uniın ve union all yapısı
+--çekilen verileri join gibi yan yana değilde alt alta 
+--görmemizi sağlayan bir yapı
+
+
+-- bu kullacağım yapı için çok mantıklı olmasada şöayle aanlatalım
+--bu yapı ile diyelimki bizim hasta ad ve hasta soyad verilerimiz
+--ayrık bir şekilde iki tabloda var işte bu verileri alt alta tekrarsız
+--bir şekide yazdırmak çin kullanacağımız yapı union ve all union yapısıdır
+-- ayrıca bunları alfabetik sıralar
+select hasta_ad as ad,hasta_soyad as soyad from Hasta
+union
+select dok_ad,Dok_Soyad from Doktor
+--tekrarlı verileri atar
+select hasta_ad as ad,hasta_soyad as soyad from Hasta
+union all
+select dok_ad,Dok_Soyad from Doktor
+--tekrarlı verileri atmaz

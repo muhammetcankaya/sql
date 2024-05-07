@@ -1,0 +1,12 @@
+Oluşturduğumuz bir kod bloğunda bu kod bloğu diyelimki 
+20 satırlık bir kod blogu normalde excute ettiğimiz sırayla başlar 
+her satırdaki komutu uygular diyelimki 18. satırda hata var e bizim uyguladığımız kod blogundaki
+18 satır uygulanmasın istersek çünkü bir yerde hata varsa bütün adımları silmesi daha güzel olur
+bizim için onun için
+transaction dediğimiz bir şey var
+
+Bir veri tabanı transaction destekliyorsa OLTP denir
+
+Süreç içinde bir hata olduğunda hata olan yere kadar gelip
+süreci kitlemek yerine süreci başa alan yapıdır 
+tansaction yapısı

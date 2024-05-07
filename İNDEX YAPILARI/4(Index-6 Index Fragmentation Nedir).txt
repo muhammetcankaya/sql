@@ -1,0 +1,34 @@
+(Index-6 Index Fragmentation Nedir?)
+Şimdi biz yapıları indexleyerek tutarız ama bizim veri tabanımıza sürekli
+yeni veriler giriliyorsa bu indexleme bozuluyor 
+bunun için veritabanları onarıma giriyor sürekli onarıma girmemesi için
+de indexleme yapılırken aralarda boşluk bırakılıyor 
+yüzde 30 40 arasında bu boşluklara yeni gelenler ekleniyor onarım 
+sıklığımız azalıyor
+
+Şimdi bunun için bir örnek yapacağız 
+bizim 5 millyon lik verimize 1,2 milyon veri ekleyeceğiz ve index yapısı bozulacak
+bizim yaptığımız örnekte 
+indexes klasöründe indexleme yaptığımız klosörün özelliklerinde
+Fragmentation satıra tıkladığımızda total fragmentation 
+yazan kısım bizim bozulma oranımız yeni 
+veriler ekledikçe artacaktır
+Eğer ben bu şekilde bozuk haliyle sql de sorgu yapmaya devam edersem sql üzerine ciddi 
+bir yük binecektir bunu düzeltmem gerekiyorr
+Bunu düzeltmek için 
+
+Rebuild ve Reorganize(KENDİNİ YORMUYOR) yapıyı kullanacağız   (Yeniden İnşa Et ve Yeniden Organize Et)
+
+Rebuild(KENDİNİ YORUYOR) 
+%30 ve üzerinde bozulma varsa 
+reorganize 
+%30 ve düşük bozulmalarda kullanılır
+e Bu işlemi nasıl yaptık index klasöründe indexlediğimiz yapıda sağ tıklayınca ikiside çıkıyor orada
+yapmamız gerekeni yapıyoruz rebuild yada reorganize yapıyoruz bozulma oranına göre
+
+
+peki Başka bir çözüm varmı 
+var oda indexleme yapmızda boşluk bırrakmak yine indexes klasöründe indexsimize sağ tıklayıp 
+özellikler options
+fil factor kısmı 0 iken onu 60 75 arası bir değer yaparsak yüzde 60-75 lik bir doldurma yapar
+yeni indexler girince hemen bozulmaz bir süre idare eder
